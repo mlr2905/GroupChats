@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const dal = require('../../dals/dals_chats/dal_2')
+const dal = require('../../dals/dal_2')
 
 // '/api/message'
 // GET 
