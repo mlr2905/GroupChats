@@ -34,7 +34,6 @@ function Hide_chats_rooms_and_room_cleaner() {
 
 function exit_to_login_screen() {
     hide_and_show("chats_rooms")
-    hide_and_show("onlines")
     hide_and_show("from")
 }
 
