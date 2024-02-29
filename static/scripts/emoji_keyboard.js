@@ -12,7 +12,7 @@ function copy_To_Clipboard(a) {//Copy the desired emoji to input text
 function emoji_keyboard() {//Emoji keyboard creator
     // async await
 
-    const url = "https://emojis-e61p.onrender.com/emojis"
+    const url = "https://emojis-json.onrender.com/emojis"
     fetch(url)
         .then(res => res.json())
         .then(data => {
@@ -27,9 +27,7 @@ function emoji_keyboard() {//Emoji keyboard creator
     const max_for = 133
     for (let i = 0; i < max_for; i++) {
         for (let j = 0; j < 12; j++) {
-            if (id_emojis === 19) {
-                id_emojis++
-            }
+            
             const son_row = document.createElement('div')
             son_row.innerHTML = `<div>${emojis[id_emojis].character}</div>`
             son_row.classList.add("emojis");
