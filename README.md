@@ -1,1 +1,1 @@
-# QuickChat
+# GroupChats
