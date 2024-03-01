@@ -20,7 +20,7 @@ router.get('/search', async (request, response) => {
     const chat3 = query.chat3
     const chat4 = query.chat4
    let body = chat1 ? chat1 : chat2  ? chat2 : chat3  ? chat3 : chat4 ?chat4:'';
-   let type = search !== undefined ? (search === chat1 ? "chat1" : search === chat2 ? "chat2" : search === chat3 ? "chat3" : search === chat4 ? "chat4":'') : undefined;
+   let type = search !== undefined ? (body === chat1 ? "chat1" : body === chat2 ? "chat2" : body === chat3 ? "chat3" : body === chat4 ? "chat4":'') :'';
     
     try {
         const get_all = await dal_1get_all(type)
