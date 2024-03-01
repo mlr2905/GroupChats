@@ -3,7 +3,7 @@ intervalId = setInterval(push_update, 500)
 function push_update(ok) { //Updates the messages displayed in the chat only if there are changes
 
     if (mainPage.chat_n !== " " || ok === "ok") {
-        let url = `/api//search?chat${mainPage.chat_n}=chat${mainPage.chat_n}`
+        let url = `/api//search?chat${mainPage.chat_n}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -109,7 +109,7 @@ function delete_(id) {//Deletes a message
 }
 
 async function id_message(i) {
-    const url = `/api/search?chat${i}=chat${i}`;
+    const url = `/api/search?chat${i}`;
     const response = await fetch(url);
     let data = await response.json();
 
