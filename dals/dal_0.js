@@ -40,18 +40,23 @@ async function get_by_id(id) {
 }
 
 
+
 async function get_emojis() {
-    // Use raw SQL to avoid backslash escaping
-    const emojis = await connectedKnex.raw('SELECT id, slug, cast(character AS text) AS character FROM emojis;')
+    // קבלת נתונים מ-SQL
+    const emojis = await connectedKnex('emojis').select('*');
   
-    // emojis might be an array of objects or other structure
-    return emojis.map(emoji => ({
-      ...emoji, // Spread existing properties
-      character: decodeURIComponent(emoji.character) // Decode unicode character
-    }));
+    // ביטוי רגולרי לחיפוש תווי emoji
+    const emojiRegex = /[\uD83C-\uD83E\uD800-\uDFFF]/g;
+  
+    // חילוץ תווי emoji מתוך שם emoji
+    for (const emoji of emojis) {
+      emoji.unicode = emoji.name.match(emojiRegex);
+    }
+  
+    // החזרת מערך של אובייקטים עם תווי emoji
+    return emojis;
   }
   
-
 module.exports = {
     get_all, get_by_id, delete_all,get_emojis
 }
