@@ -12,6 +12,16 @@ router.get('/', async (request, response) => {
         response.json({ 'error': JSON.stringify(e) })
     }
 })
+// GET 
+router.get('/emojis', async (request, response) => {
+    try {
+        const messages = await dal.get_emojis()
+        response.json(messages)
+    }
+    catch (e) {
+        response.json({ 'error': JSON.stringify(e) })
+    }
+})
 // GET by ID
 router.get('/:id', async (request, response) => {
     const user_id = parseInt(request.params.id)
