@@ -29,7 +29,7 @@ function emoji_keyboard() {//Emoji keyboard creator
         for (let j = 0; j < 12; j++) {
             
             const son_row = document.createElement('div')
-            son_row.innerHTML = `<div>${emojis[id_emojis].character}</div>`
+            son_row.innerHTML = `<div>${emojis[id_emojis].code}</div>`
             son_row.classList.add("emojis");
             son_row.id = `emoji-${id_emojis}`
             const div = document.getElementById(`emoji-${id_emojis}`);
