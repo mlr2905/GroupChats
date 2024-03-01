@@ -85,7 +85,7 @@ router.post('/post/search', async (request, response) => {
 })
 
 // put
-router.put('/chat${mainPage.chat_n}/search', async (request, response) => {
+router.put('/put/search', async (request, response) => {
     const update = request.body
     const user = await dal_1.get_by_id(id)
     const chat1 = query.chat1
