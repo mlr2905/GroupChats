@@ -9,7 +9,7 @@ function push_update(ok) { //Updates the messages displayed in the chat only if 
             .then(data => {
                 localStorage.setItem("check", JSON.stringify(data));
                 mainPage.Push = JSON.parse(localStorage.getItem("check"));
-                if (mainPage.user !== '') {
+                if (mainPage.user_or_Another_user !== '') {
                     if (mainPage.Push.length !== mainPage.size_array.length || ok === "ok") {
                         mainPage.Push = 0;
                         get();
