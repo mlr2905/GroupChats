@@ -42,7 +42,7 @@ async function get_by_id(id) {
 
 
 async function get_emojis() {
-    const emojis = await connectedKnex('emojis').select('*').where('id', id).first()
+    const emojis = await connectedKnex('emojis').select('*')
    
     return emojis
 }
