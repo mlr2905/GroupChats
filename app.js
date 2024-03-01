@@ -6,11 +6,11 @@ const cors = require('cors');
 
 const body_parser = require('body-parser')
 const chats_router = require('./routers/chats_router')
-const chat1_router = require('./routers/chat1_router')
+const chat1_router = require('./routers/router_all_chats')
 const chat2_router = require('./routers/chat2_router')
 const chat3_router = require('./routers/chat3_router')
 const chat4_router = require('./routers/chat4_router')
-const chat5_router = require('./routers/chat5_router')
+const chat5_router = require('./routers/router_online_users')
 
 
 logger.info('==== System start =======')
@@ -28,9 +28,9 @@ app.listen(3000, () => {
 app.use(cors());
 app.use('/api/chats', chats_router)
 app.use('/api/', chat1_router)
-app.use('/api/chat2', chat2_router)
-app.use('/api/chat3', chat3_router)
-app.use('/api/chat4', chat4_router)
+// app.use('/api/chat2', chat2_router)
+// app.use('/api/chat3', chat3_router)
+// app.use('/api/chat4', chat4_router)
 app.use('/api/connected', chat5_router)
 
 

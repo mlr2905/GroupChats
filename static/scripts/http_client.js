@@ -3,7 +3,7 @@ intervalId = setInterval(push_update, 500)
 function push_update(ok) { //Updates the messages displayed in the chat only if there are changes
 
     if (mainPage.chat_n !== " " || ok === "ok") {
-        let url = `/api/chat${mainPage.chat_n}`
+        let url = `/api//search?chat${mainPage.chat_n}=chat${mainPage.chat_n}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -36,7 +36,7 @@ function get() {
 function post_img(event) {//Only the sender sees the picture
     mainPage.new_time = time_new()
     const img = image1.src = URL.createObjectURL(event.target.files[0]);
-    const url = `/api/chat${mainPage.chat_n}`
+    let url = `/api/post/search?chat${mainPage.chat_n}=chat${mainPage.chat_n}`
     fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -58,7 +58,7 @@ function post_data() {//Sending a text message, a link to YouTube, Tiktok, Faceb
         link_type()  //Printing_messages.js
         const input = document.getElementById('text')
         input.value = '';
-        let url = `/api/chat${mainPage.chat_n}`
+        let url = `/api/post/search?chat${mainPage.chat_n}=chat${mainPage.chat_n}`
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -71,12 +71,12 @@ function post_data() {//Sending a text message, a link to YouTube, Tiktok, Faceb
     }
 }
 
-async function put(number, value) { //Editing of a message of any type to any type
+async function put(id, value) { //Editing of a message of any type to any type
     mainPage.new_text = value
     mainPage.string_name = "text"
     link_type()
     mainPage.new_time = time_new()
-    let url = `/api/chat${mainPage.chat_n}/${number}`
+    let url = `/api/put/search?chat${mainPage.chat_n}=${id}`
     let response = await fetch(`${url}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -95,8 +95,8 @@ async function put(number, value) { //Editing of a message of any type to any ty
     }
 }
 
-function delete_(number) {//Deletes a message
-    let url = `/api/chat${mainPage.chat_n}/${number}`
+function delete_(id) {//Deletes a message
+    let url = `/api//search?chat${mainPage.chat_n}=${id}`
     fetch(url, {
         method: 'DELETE'
     }).then(response => {
@@ -109,7 +109,7 @@ function delete_(number) {//Deletes a message
 }
 
 async function id_message(i) {
-    const url = `/api/chat${i}`;
+    const url = `/api/search?chat${i}=chat${i}`;
     const response = await fetch(url);
     let data = await response.json();
 

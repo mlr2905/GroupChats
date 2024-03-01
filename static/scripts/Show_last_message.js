@@ -2,7 +2,7 @@ async function last_message() {
     const mainPage = { name: document.getElementById('name').value }; // Access name directly
   
     for (let i = 1; i < 5; i++) {
-      const url = `/api/chat${i}`;
+      const url =`/api/search?chat${i}=chat${i}`;
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error('network problem');
