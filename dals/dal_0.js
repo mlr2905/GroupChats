@@ -42,10 +42,21 @@ async function get_by_id(id) {
 
 
 async function get_emojis() {
-    const emojis = await connectedKnex('emojis').select('*')
-   
-    return emojis
+  // קבלת נתונים מ-SQL
+  let emojis = await connectedKnex('emojis').select('*');
+
+  // ביטוי רגולרי לחיפוש תווי emoji
+  const emojiRegex = /\\u([\d\w]{4})/gi;
+
+  // חילוץ תווי emoji מתוך שם emoji
+  for (let emoji of emojis) {
+    emoji.unicode = emoji.name.match(emojiRegex);
+  }
+
+  // החזרת מערך של אובייקטים עם תווי emoji
+  return emojis;
 }
+
 module.exports = {
     get_all, get_by_id, delete_all,get_emojis
 }
