@@ -5,8 +5,8 @@ const dal = require('../dals/dal_0')
 // GET 
 router.get('/', async (request, response) => {
     try {
-        const messages = await dal.get_all()
-        response.json(messages)
+        const get_all = await dal.get_all()
+        response.json(get_all)
     }
     catch (e) {
         response.json({ 'error': JSON.stringify(e) })
@@ -15,8 +15,8 @@ router.get('/', async (request, response) => {
 // GET 
 router.get('/emojis', async (request, response) => {
     try {
-        const messages = await dal.get_emojis()
-        response.json(messages)
+        const emojis = await dal.get_emojis()
+        response.json(emojis)
     }
     catch (e) {
         response.json({ 'error': JSON.stringify(e) })
