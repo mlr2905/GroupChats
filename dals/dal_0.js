@@ -46,7 +46,7 @@ async function get_emojis() {
   let emojis = await connectedKnex('emojis').select('*');
 
   // ביטוי רגולרי לחיפוש תווי emoji
-  const emojiRegex = /[\uD83C-\uD83E\uD800-\uDFFF]/g;
+  const emojiRegex = /\\u([\d\w]{4})/gi;
 
   // חילוץ תווי emoji מתוך שם emoji
   for (let emoji of emojis) {
