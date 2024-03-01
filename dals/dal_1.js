@@ -19,14 +19,14 @@ async function create_table_if_not_exist() {
 
 async function delete_all() {
     // db.run('update chat1 ....')
-    const result = await connectedKnex('chat1').del()
+    const result = await connectedKnex(`'chat1'`).del()
     await connectedKnex.raw('ALTER SEQUENCE "chat1_id_seq" RESTART WITH 1');
     return result
 }
 
-async function get_all() {
+async function get_all(type) {
     // db.run('select * from chat1')
-    const messages = await connectedKnex('chat1').select('*')
+    const messages = await connectedKnex(`${type}`).select('*')
 
     return messages
 }

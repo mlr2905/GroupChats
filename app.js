@@ -27,7 +27,7 @@ app.listen(3000, () => {
 });
 app.use(cors());
 app.use('/api/chats', chats_router)
-app.use('/api/chat1', chat1_router)
+app.use('/api/', chat1_router)
 app.use('/api/chat2', chat2_router)
 app.use('/api/chat3', chat3_router)
 app.use('/api/chat4', chat4_router)

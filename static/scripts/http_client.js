@@ -33,7 +33,7 @@ function get() {
     message_sorting() //Printing_messages.js
 }
 
-function post_img() {//Only the sender sees the picture
+function post_img(event) {//Only the sender sees the picture
     mainPage.new_time = time_new()
     const img = image1.src = URL.createObjectURL(event.target.files[0]);
     const url = `/api/chat${mainPage.chat_n}`
