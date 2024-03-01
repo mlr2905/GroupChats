@@ -3,7 +3,7 @@ intervalId = setInterval(push_update, 500)
 function push_update(ok) { //Updates the messages displayed in the chat only if there are changes
 
     if (mainPage.chat_n !== " " || ok === "ok") {
-        let url = `/api//search?chat${mainPage.chat_n}`
+        let url = `/api/search?chat${mainPage.chat_n}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -58,7 +58,7 @@ function post_data() {//Sending a text message, a link to YouTube, Tiktok, Faceb
         link_type()  //Printing_messages.js
         const input = document.getElementById('text')
         input.value = '';
-        let url = `/api/post/search?chat${mainPage.chat_n}=chat${mainPage.chat_n}`
+        let url = `/api/post/search?chat${mainPage.chat_n}`
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
