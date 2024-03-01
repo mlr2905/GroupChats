@@ -96,7 +96,7 @@ async function put(id, value) { //Editing of a message of any type to any type
 }
 
 function delete_(id) {//Deletes a message
-    let url = `/api//search?chat${mainPage.chat_n}=${id}`
+    let url = `/api/delete/search?chat${mainPage.chat_n}=${id}`
     fetch(url, {
         method: 'DELETE'
     }).then(response => {
