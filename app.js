@@ -5,9 +5,8 @@ const express = require('express')
 const cors = require('cors');
 
 const body_parser = require('body-parser')
-const get_all_chats = require('./routers/get_all_chats_only')
-const all_chats = require('./routers/all_chats')
-
+const get_all_chats = require('./routers/router_get_all_chats_only')
+const all_chats = require('./routers/router_all_chats')
 const online_users = require('./routers/router_online_users')
 
 
