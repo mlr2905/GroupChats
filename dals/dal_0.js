@@ -42,16 +42,11 @@ async function get_by_id(id) {
 
 
 async function get_emojis() {
-    const emojis = await connectedKnex('emojis').select('*')
-  
-    // פיענוח unicode characters
-    emojis.forEach(emoji => {
-      emoji.character = decodeURIComponent(emoji.character)
-    })
+    const emojis = await connectedKnex.raw('SELECT id, slug, cast(character AS text) AS character FROM emojis;')
   
     return emojis
   }
-  
+
 module.exports = {
     get_all, get_by_id, delete_all,get_emojis
 }
