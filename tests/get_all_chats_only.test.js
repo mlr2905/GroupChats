@@ -1,5 +1,5 @@
 const assert = require('assert')
-const dal = require('../dals/dal_0')
+const dal = require('../dals/dal_get_all_chats_only')
 
 describe('Testing functionallity of the DAL', () => {
 
