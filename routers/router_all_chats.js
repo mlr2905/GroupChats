@@ -6,7 +6,7 @@ const dal_1 = require('../dals/dal_all_chats')
 
 
 
-// '/chat1/api/chat1'
+// '/api/'
 // GET 
 router.get('/search', async (request, response) => {
     const query = request.query

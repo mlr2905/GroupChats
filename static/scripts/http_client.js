@@ -87,7 +87,6 @@ async function put(id, value) { //Editing of a message of any type to any type
             "type": "${mainPage.string_name}"
                 }`})
     let data = await response.json()
-    console.log('33',data);
     if (data) {
         clearInterval(intervalId);
         const ok = "ok"

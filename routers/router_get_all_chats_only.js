@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const dal = require('../dals/dal_0')
+const dal = require('../dals/get_all_chats_only')
 
 // GET 
 router.get('/', async (request, response) => {

@@ -23,7 +23,7 @@ function emoji_keyboard() {//Emoji keyboard creator
     const son = document.createElement('div')
     son.classList.add("row");
     father_div.appendChild(son)
-    let id_emojis = 1
+    let id_emojis = 0
     const max_for = 221
     for (let i = 0; i < max_for; i++) {
         for (let j = 0; j < 12; j++) {

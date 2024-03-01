@@ -3,27 +3,7 @@ const db = require('../connect_db/default');
 const { log } = require('winston');
 const connectedKnex = db.connect()
 
-async function create_table_if_not_exist(type) {
-    const tableExists = await connectedKnex.schema.hasTable('chat1');
 
-    if (!tableExists) {
-        await connectedKnex.schema.createTable(`${type}`, (table) => {
-            table.increments('id').primary(); // This creates a SERIAL column
-            table.string('user').notNullable();
-            table.string('text').notNullable();
-            table.time('time', { precision: 0 });
-            table.string('type').notNullable();
-        });
-    }
-
-}
-
-async function delete_all(type) {
-    // db.run('update chat1 ....')
-    const result = await connectedKnex(`${type}`).del()
-    await connectedKnex.raw('ALTER SEQUENCE "chat1_id_seq" RESTART WITH 1');
-    return result
-}
 
 async function get_all(type) {
     try {
@@ -81,6 +61,30 @@ async function delete_message(type, id) {
     }
 }
 
+// ---------------Test functions only---------------
+
+async function create_table_if_not_exist(type) {
+    const tableExists = await connectedKnex.schema.hasTable('chat1');
+
+ 
+if (!tableExists) {
+    await connectedKnex.schema.createTable(`${type}`, (table) => {
+        table.increments('id').primary(); // This creates a SERIAL column
+        table.string('user').notNullable();
+        table.string('text').notNullable();
+        table.time('time', { precision: 0 });
+        table.string('type').notNullable();
+    });
+}
+
+}
+
+async function delete_all(type) {
+// db.run('update chat1 ....')
+const result = await connectedKnex(`${type}`).del()
+await connectedKnex.raw('ALTER SEQUENCE "chat1_id_seq" RESTART WITH 1');
+return result
+}
 module.exports = {
     get_all, get_by_id, new_message, update_message, delete_message,
     delete_all, create_table_if_not_exist
