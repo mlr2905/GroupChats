@@ -16,7 +16,7 @@ router.get('/', async (request, response) => {
 router.get('/emojis', async (request, response) => {
     try {
         const messages = await dal.get_emojis()
-        response.messages
+        response.json.stringify(messages)
     }
     catch (e) {
         response.json({ 'error': JSON.stringify(e) })
