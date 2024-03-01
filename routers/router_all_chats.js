@@ -87,13 +87,13 @@ router.post('/post/search', async (request, response) => {
 // put
 router.put('/put/search', async (request, response) => {
     const update = request.body
-    const user = await dal_1.get_by_id(id)
     const chat1 = query.chat1
     const chat2 = query.chat2
     const chat3 = query.chat3
     const chat4 = query.chat4
     let id = chat1 ? chat1 : chat2 ? chat2 : chat3 ? chat3 : chat4 ? chat4 : '';
     let type = id !== undefined ? (id === chat1 ? "chat1" : id === chat2 ? "chat2" : id === chat3 ? "chat3" : id === chat4 ? "chat4" : '') : '';
+    const user = await dal_1.get_by_id(type,id)
 
     try {
         // override only existing fields in the user from the db
