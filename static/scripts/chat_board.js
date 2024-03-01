@@ -77,6 +77,8 @@ async function editing_message(id) {
 }
 
 function activation(n) { //The function is responsible for displaying storage of the selected chat
+    mainPage.name = document.getElementById("name").value
+
     if (mainPage.name !== '') {
         mainPage.chat_n = n // Used by fetch functions
         mainPage.json_id = id_message(n) //Used by the post_data function

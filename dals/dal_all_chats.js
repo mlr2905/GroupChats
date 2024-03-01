@@ -56,8 +56,13 @@ async function new_message(type, new_mes) {
 
 async function update_message(type, id, updated_message) {
     // db.run('update chat1 ....')
+    console.log('1',updated_message)
+    console.log('2',id)
+    console.log('3',type)
+
     try {
         const result = await connectedKnex(`${type}`).where('id', id).update(updated_message)
+
         return updated_message
     } catch (error) {
         console.error('שגיאה בפונקציה delete_message:', error);

@@ -1,10 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const dal_0 = require('../dals/dal_0')
 const dal_1 = require('../dals/dal_all_chats')
-const dal_2 = require('../dals/dal_2')
-const dal_3 = require('../dals/dal_3')
-const dal_4 = require('../dals/dal_4')
 
 
 
@@ -87,6 +83,7 @@ router.post('/post/search', async (request, response) => {
 // put
 router.put('/put/search', async (request, response) => {
     const update = request.body
+    const query = request.query
     const chat1 = query.chat1
     const chat2 = query.chat2
     const chat3 = query.chat3
