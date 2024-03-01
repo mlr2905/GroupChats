@@ -42,10 +42,15 @@ async function get_by_id(id) {
 
 
 async function get_emojis() {
-    const emojis = await connectedKnex('emojis').select('*')
+    const emojis = await connectedKnex('emojis').select('*');
    
-    return emojis.map(emoji => emoji.code)
+    return emojis.map(emoji => ({
+        id: emoji.id,
+        code: JSON.parse(`"${emoji.code}"`)
+    }));
 }
+
+
 module.exports = {
     get_all, get_by_id, delete_all,get_emojis
 }
