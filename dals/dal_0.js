@@ -44,7 +44,7 @@ async function get_by_id(id) {
 async function get_emojis() {
     const emojis = await connectedKnex('emojis').select('*')
    
-    return JSON.stringify(emojis)
+    return emojis
 }
 module.exports = {
     get_all, get_by_id, delete_all,get_emojis
