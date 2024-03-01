@@ -12,7 +12,7 @@ function copy_To_Clipboard(a) {//Copy the desired emoji to input text
 function emoji_keyboard() {//Emoji keyboard creator
     // async await
 
-    const url = "https://emojis-json.onrender.com/emojis"
+    const url = "api/chats/emojis"
     fetch(url)
         .then(res => res.json())
         .then(data => {
