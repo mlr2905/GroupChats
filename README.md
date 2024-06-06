@@ -14,7 +14,7 @@
 ---
 
 :man_technologist: 
-About Me :<p><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="70">Full Stack Developer  from Israel.</p>
+About Me :Full Stack Developer  from Israel.<img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="70">
 
 ---
 
