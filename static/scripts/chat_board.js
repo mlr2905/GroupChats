@@ -93,9 +93,13 @@ function activation(n) { //The function is responsible for displaying storage of
         Swal.fire('You must enter a name!! Without a name you cannot enter the room', '', 'success')
     }
 }
-function add_img(event) {  //A function saves the user's image
-    frame.src = URL.createObjectURL(event.target.files[0]);
-    mainPage.img_user = frame.src
+function add_img() {  //A function saves the user's image
+    if (!this.files || !this.files[0]) {
+        console.error('No file selected');
+        return;
+    }
+    frame.src = URL.createObjectURL(this.files[0]);
+    mainPage.img_user = frame.src;
 }
 
 function handleEnter(enter) { //Makes the enter button work like a send button
