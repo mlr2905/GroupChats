@@ -1,5 +1,8 @@
 const mainPage = new MainPage()
 
+
+    mainPage.img_user = undefined;
+
 function hide_and_show(name) {
     const div1 = document.getElementById(name);
     div1.style.display = div1.style.display === "block" ? "none" : "block";
@@ -93,12 +96,16 @@ function activation(n) { //The function is responsible for displaying storage of
         Swal.fire('You must enter a name!! Without a name you cannot enter the room', '', 'success')
     }
 }
-function add_img() {  //A function saves the user's image
-    if (!this.files || !this.files[0]) {
+function add_img(event) {
+    const input = event.target; // או פשוט: const input = this;
+console.log(input);
+
+    if (!input.files || !input.files[0]) {
         console.error('No file selected');
         return;
     }
-    frame.src = URL.createObjectURL(this.files[0]);
+    
+    frame.src = URL.createObjectURL(input.files[0]);
     mainPage.img_user = frame.src;
 }
 

@@ -9,9 +9,7 @@ function copy_To_Clipboard(a) {//Copy the desired emoji to input text
     input.value += a;
 }
 
-function emoji_keyboard() {//Emoji keyboard creator
-    // async await
-
+function emoji_keyboard() {
     const url = "api/chats/emojis"
     fetch(url)
         .then(res => res.json())
@@ -27,20 +25,20 @@ function emoji_keyboard() {//Emoji keyboard creator
     const max_for = 221
     for (let i = 0; i < max_for; i++) {
         for (let j = 0; j < 12; j++) {
-            
             const son_row = document.createElement('div')
             son_row.innerHTML = `<div>${emojis[id_emojis].code}</div>`
             son_row.classList.add("emojis");
             son_row.id = `emoji-${id_emojis}`
-            const div = document.getElementById(`emoji-${id_emojis}`);
-            let img = emojis[id_emojis].character
+            
+            // שמור את הערך לפני שמוסיפים את האלמנט
+            let img = emojis[id_emojis].code
+            
             son.appendChild(son_row)
-            add_Cell_Click_emoji(`${son_row.id}`, img)
+            add_Cell_Click_emoji(`emoji-${id_emojis}`, img) // השתמש בזהות המדויק
             id_emojis++
         }
     }
 }
-
 function add_Cell_Click_emoji(divId, number) { //Adds onclick to every emoji
     const div = document.getElementById(divId);
     div.addEventListener("click", function () {

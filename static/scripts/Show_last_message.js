@@ -1,5 +1,5 @@
 async function last_message() {
-    const mainPage = { name: document.getElementById('name').value }; // Access name directly
+     mainPage.name =  document.getElementById('name').value ; // Access name directly
   
     for (let i = 1; i < 5; i++) {
       const url =`/api/search?chat${i}`;
@@ -19,6 +19,7 @@ async function last_message() {
 
         const user_name = last_m[a].user === mainPage.name ? "you" : last_m[a].user;
         const imgMap = { 1: img_user1, 2: img_user2, 3: img_user3, 4: img_user4 };
+        
         imgMap[i].src = user_name === "you" ? mainPage.img_user || "./image/man.png" : "./image/bot.png";
   
         p_son.innerHTML = `<b>${user_name}</b>: ${last_m[a].type === "text" && last_m[a].text.length > 25 ? "Long message!!" : last_m[a].text || "photo message!!" || "link message!!"}`;
