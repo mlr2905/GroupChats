@@ -10,7 +10,7 @@ function text_message(i, id) {
             <iconify-icon icon="uim:ellipsis-v"></iconify-icon>
         </span>
     </div>
-    <img class="direct-chat-img" src="${mainPage.img}" alt="message user image">
+    <img class="direct-chat-img" src="./${mainPage.img}" alt="message user image">
     <div class="direct-chat-text">
         ${mainPage.size_array[i].text}
     </div>
@@ -30,7 +30,7 @@ function image_Message(i, id) {
                     <iconify-icon icon="uim:ellipsis-v"></iconify-icon>
                 </span>
             </div>
-            <img class="direct-chat-img" src="${mainPage.img}"  alt="message user image">
+            <img class="direct-chat-img" src="./${mainPage.img}"  alt="message user image">
             <div class="direct-chat-text">
             <img src="${mainPage.size_array[i].text}"  id="img-${id}" />
             </div>
@@ -51,7 +51,7 @@ function link_message(i, id) {
                     <iconify-icon icon="uim:ellipsis-v"></iconify-icon>
                 </span>
             </div>
-            <img class="direct-chat-img" src="${mainPage.img}"  alt="message user image">
+            <img class="direct-chat-img" src="./${mainPage.img}"  alt="message user image">
             <div class="direct-chat-text">
             <a href="${mainPage.size_array[i].text}">${mainPage.size_array[i].text}</a>
             </div>
@@ -82,7 +82,7 @@ function youtube_message(i, id) {
                     <iconify-icon icon="uim:ellipsis-v"></iconify-icon>
                 </span>
             </div>
-            <img class="direct-chat-img" src="${mainPage.img}"  alt="message user image">
+            <img class="direct-chat-img" src="./${mainPage.img}"  alt="message user image">
             <div class="direct-chat-text">
                 <iframe width="300" height="200"
                 src="https://www.youtube.com/embed/${firstPart}?si=cFQc8PdAdX4dZwNQ"
@@ -105,7 +105,7 @@ function facebook_message(i, id) {
                     <iconify-icon icon="uim:ellipsis-v"></iconify-icon>
                 </span>
             </div>
-            <img class="direct-chat-img" src="${mainPage.img}" alt="message user image">
+            <img class="direct-chat-img" src="./${mainPage.img}" alt="message user image">
             <div class="direct-chat-text">
                 <iframe width="300" height="200"
                     src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FSirtonimInt%2Fvideos%2F${mainPage.size_array[i].text}%2F&show_text=false&width=560&t=0"
@@ -134,7 +134,7 @@ function tiktok_message(i, id) {
                     <iconify-icon icon="uim:ellipsis-v"></iconify-icon>
                 </span>
             </div>
-            <img class="direct-chat-img" src="${mainPage.img}" alt="message user image">
+            <img class="direct-chat-img" src="./${mainPage.img}" alt="message user image">
             <div class="direct-chat-text">
                 <blockquote class="tiktok-embed" cite="${mainPage.size_array[i].text}"data-video-id="${firstPart}"> 
                     <section></section>

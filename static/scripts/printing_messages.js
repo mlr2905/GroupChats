@@ -7,7 +7,7 @@ function message_sorting() {
         mainPage.img = mainPage.size_array[i].user === mainPage.name ? mainPage.img_user : "image/bot.png";
         mainPage.user_or_Another_user = mainPage.size_array[i].user === mainPage.name ? "user" : "Another-user";
         if (mainPage.img === " ") {
-            mainPage.img = "image/man.png"
+            mainPage.img = "./image/man.png"
         }
 
         switch (mainPage.size_array[i].type) {
